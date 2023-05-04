@@ -72,40 +72,23 @@ class Lightswitch {
 	constructor() {
 		this.x = width/2 - 200
 		this.y = height - 150
-		this.wO = 100
-		this.hO = 200
-		this.wI = 50
-		this.hI = 150
+		this.rI = 100
+		this.rO = 150
 
 		this.on = true
 	}
 
 	show() {
-		rectMode(CENTER)
-
-		stroke(0)
 		strokeWeight(5)
-		fill(250)
-		rect(this.x, this.y, this.wO, this.hO, 10)
+		fill(150)
+		circle(this.x, this.y, this.rO)
 
 		strokeWeight(3)
-
-		fill(200)
-		rect(this.x, this.y - this.hI/4, this.wI, this.hI/2)
-
-		fill(150)
-		rect(this.x, this.y + this.hI/4, this.wI, this.hI/2)
-
-		fill(250)
-		// if (this.mouseOver() && mouseIsPressed) {
-		// 	strokeWeight(5)
-		// }
-		if (this.on) {
-			rect(this.x, this.y - this.hI/8, this.wI, this.hI/2)
-		} else {
-			rect(this.x, this.y + this.hI/8, this.wI, this.hI/2)
+		if (this.mouseOver() && mouseIsPressed) {
+			strokeWeight(5)
 		}
-
+		fill(250)
+		circle(this.x, this.y, this.rI)
 	}
 
 	toggle() {
@@ -118,13 +101,7 @@ class Lightswitch {
 	}
 
 	mouseOver() {
-		if (!this.on && (this.x - this.wI/2 <= mouseX) && (mouseX <= this.x + this.wI/2) && (this.y - this.hI/8 <= mouseY) && (mouseY <= this.y + this.hI/8*3)) {
-			return true
-		}
-		if (this.on && (this.x - this.wI/2 <= mouseX) && (mouseX <= this.x + this.wI/2) && (this.y - this.hI/8*3 <= mouseY) && (mouseY <= this.y + this.hI/8)) {
-			return true
-		}
-		return false
+		return distance(mouseX, mouseY, this.x, this.y) < this.rI/2
 	}
 }
 
