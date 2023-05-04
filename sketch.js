@@ -89,6 +89,11 @@ class Lightswitch {
 		}
 		fill(250)
 		circle(this.x, this.y, this.rI)
+
+		noFill()
+		strokeWeight(5)
+		arc(this.x, this.y, this.rI/2, this.rI/2, -PI/4, PI + PI/4)
+		line(this.x, this.y - this.rI/4, this.x, this.y)
 	}
 
 	toggle() {
@@ -159,7 +164,6 @@ class Remote {
 
 	show() {
 		rectMode(CENTER)
-
 		stroke(0)
 		strokeWeight(5)
 		fill(250)
@@ -167,7 +171,6 @@ class Remote {
 
 		this.buttonPlus.show()
 		this.buttonMinus.show()
-
 	}
 }
 
