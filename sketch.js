@@ -75,7 +75,7 @@ class Lightswitch {
 		this.rI = 100
 		this.rO = 150
 
-		this.on = true
+		this.on = false
 	}
 
 	show() {
